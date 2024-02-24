@@ -145,7 +145,7 @@ jobs:
         if: needs.release.outputs.id != ''
         uses: xresloader/upload-to-github-release@v1
         env:
-          GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
         with:
           release_id: ${{ needs.release.outputs.id }}
           file: ./build/output/images/*.img.xz
@@ -155,7 +155,7 @@ jobs:
         if: needs.release.outputs.id != ''
         uses: xresloader/upload-to-github-release@v1
         env:
-          GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
         with:
           release_id: ${{ needs.release.outputs.id }}
           file: ./build/output/images/*.sha256
@@ -165,7 +165,7 @@ jobs:
         if: needs.release.outputs.id != ''
         uses: xresloader/upload-to-github-release@v1
         env:
-          GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
         with:
           release_id: ${{ needs.release.outputs.id }}
           file: ./build/output/images/*.txt
@@ -238,7 +238,7 @@ jobs:
       - name: Publish Release
         uses: StuYarrow/publish-release@v1
         env:
-          GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
         with:
           id: ${{ needs.release.outputs.id }}
 
@@ -253,4 +253,4 @@ jobs:
         with:
           threshold: 2d
         env:
-          GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
